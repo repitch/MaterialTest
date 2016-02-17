@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/share" android:title="Поделиться" android:icon="@drawable/ic_share_black_18dp"/>
+    <item android:id="@+id/upload" android:title="Загрузить" android:icon="@drawable/ic_file_upload_black_18dp"/>
+    <item android:id="@+id/call" android:title="Позвонить" android:icon="@drawable/ic_call_black_24dp"/>
+    <group android:id="@+id/helpgroup">
+        <item android:id="@+id/help" android:title="Помощь" android:icon="@drawable/ic_help_outline_black_24dp"/>
+    </group>
+</menu>
