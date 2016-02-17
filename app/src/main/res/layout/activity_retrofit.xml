@@ -11,110 +11,124 @@
     <!--<include layout="@layout/app_bar_main" android:layout_width="match_parent"
         android:layout_height="match_parent" />-->
 
-    <LinearLayout
-        android:id="@+id/content_frame"
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Погода by retrofit"
-            android:textSize="32sp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_height="wrap_content"
-            android:text="город"
-            android:textColor="@color/grey_40"/>
+            <LinearLayout
+                android:id="@+id/content_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txt_city"
-            android:textSize="24sp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="City" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Погода by retrofit"
+                    android:textSize="32sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_height="wrap_content"
-            android:text="статус"
-            android:textColor="@color/grey_40"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="город"
+                    android:textColor="@color/grey_40" />
 
-        <TextView
-            android:id="@+id/txt_status"
-            android:textSize="24sp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="status" />
+                <TextView
+                    android:id="@+id/txt_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:text="City"
+                    android:textSize="24sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_height="wrap_content"
-            android:text="температура"
-            android:textColor="@color/grey_40"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="статус"
+                    android:textColor="@color/grey_40" />
 
-        <TextView
-            android:id="@+id/txt_temp"
-            android:textSize="24sp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="status" />
+                <TextView
+                    android:id="@+id/txt_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:text="status"
+                    android:textSize="24sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_height="wrap_content"
-            android:text="влажность"
-            android:textColor="@color/grey_40"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="температура"
+                    android:textColor="@color/grey_40" />
 
-        <TextView
-            android:id="@+id/txt_humidity"
-            android:textSize="24sp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="status" />
+                <TextView
+                    android:id="@+id/txt_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:text="status"
+                    android:textSize="24sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_height="wrap_content"
-            android:text="давление"
-            android:textColor="@color/grey_40"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="влажность"
+                    android:textColor="@color/grey_40" />
 
-        <TextView
-            android:id="@+id/txt_press"
-            android:textSize="24sp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="status" />
+                <TextView
+                    android:id="@+id/txt_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:text="status"
+                    android:textSize="24sp" />
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="16dp"
+                    android:text="давление"
+                    android:textColor="@color/grey_40" />
+
+                <TextView
+                    android:id="@+id/txt_press"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:text="status"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

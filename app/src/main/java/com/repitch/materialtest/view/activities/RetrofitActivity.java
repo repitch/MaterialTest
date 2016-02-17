@@ -2,6 +2,8 @@ package com.repitch.materialtest.view.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -34,6 +36,36 @@ public class RetrofitActivity extends BaseActivity
         setContentView(R.layout.activity_retrofit);
         initViews();
 
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mSwipeRefreshLayout.setRefreshing(true);
+            }
+        });
+        loadWeather();
+    }
+    private TextView mTxtCity, mTxtStatus, mTxtHumidity, mTxtPressure, mTxtTemp;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+
+    private void initViews() {
+        mTxtCity = (TextView) findViewById(R.id.txt_city);
+        mTxtStatus = (TextView) findViewById(R.id.txt_status);
+        mTxtTemp = (TextView) findViewById(R.id.txt_temp);
+        mTxtHumidity = (TextView) findViewById(R.id.txt_humidity);
+        mTxtPressure = (TextView) findViewById(R.id.txt_press);
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mSwipeRefreshLayout.setRefreshing(true);
+                loadWeather();
+            }
+        });
+    }
+
+    private void loadWeather() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -56,6 +88,8 @@ public class RetrofitActivity extends BaseActivity
                 mTxtHumidity.setText(weatherModel.getMain().getHumidity()+"");
                 mTxtPressure.setText(weatherModel.getMain().getPressure()+"");
 
+                mSwipeRefreshLayout.setRefreshing(false);
+                Snackbar.make(mTxtCity, "Погода успешно обновлена", Snackbar.LENGTH_SHORT).show();
             }
 
             @Override
@@ -63,15 +97,6 @@ public class RetrofitActivity extends BaseActivity
                 Log.e("RETRO", "onFailure: "+t.toString());
             }
         });
-    }
-    private TextView mTxtCity, mTxtStatus, mTxtHumidity, mTxtPressure, mTxtTemp;
-
-    private void initViews() {
-        mTxtCity = (TextView) findViewById(R.id.txt_city);
-        mTxtStatus = (TextView) findViewById(R.id.txt_status);
-        mTxtTemp = (TextView) findViewById(R.id.txt_temp);
-        mTxtHumidity = (TextView) findViewById(R.id.txt_humidity);
-        mTxtPressure = (TextView) findViewById(R.id.txt_press);
     }
 
 }
