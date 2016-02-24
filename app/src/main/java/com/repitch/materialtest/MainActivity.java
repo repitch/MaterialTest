@@ -6,15 +6,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -28,6 +29,11 @@ import com.octo.android.robospice.request.simple.SimpleTextRequest;
 import com.repitch.materialtest.view.activities.BaseSpiceActivity;
 import com.repitch.materialtest.view.activities.GalleryActivity;
 import com.repitch.materialtest.view.activities.RetrofitActivity;
+import com.repitch.materialtest.view.activities.VKAuthActivity;
+import com.vk.sdk.VKAccessToken;
+import com.vk.sdk.VKCallback;
+import com.vk.sdk.VKSdk;
+import com.vk.sdk.api.VKError;
 
 import java.io.ByteArrayOutputStream;
 
@@ -58,6 +64,25 @@ public class MainActivity extends BaseSpiceActivity
         // robospice
         textRequest = new SimpleTextRequest("http://androiddocs.ru/api/friends.json");
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (!VKSdk.onActivityResult(requestCode, resultCode, data, new VKCallback<VKAccessToken>() {
+            @Override
+            public void onResult(VKAccessToken res) {
+            // Пользователь успешно авторизовался
+                Log.e(MainActivity.class.getSimpleName(), "VKSdk onResult");
+            }
+
+            @Override
+            public void onError(VKError error) {
+            // Произошла ошибка авторизации (например, пользователь запретил авторизацию)
+                Log.e(MainActivity.class.getSimpleName(), "VKSdk onError");
+            }
+        })) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     @Override
@@ -201,7 +226,8 @@ public class MainActivity extends BaseSpiceActivity
             case R.id.nav_gallery:
                 startActivity(new Intent(this, GalleryActivity.class));
                 break;
-            case R.id.nav_slideshow:
+            case R.id.nav_vkontakte:
+                startActivity(new Intent(this, VKAuthActivity.class));
                 break;
             case R.id.nav_manage:
                 break;

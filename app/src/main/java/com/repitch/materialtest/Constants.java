@@ -12,4 +12,7 @@ public class Constants {
     public static final String LANG_RU = "ru";
     public static final String UNITS_METRIC = "metric";
 
+    public static final String VK_API_ID = "5315024";
+    public static final String VK_API_KEY = "cABiqba7jbpF3xDDbD9n";
+
 }
