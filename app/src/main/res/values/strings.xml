@@ -9,6 +9,7 @@
     <string name="gallery_activity_label">Gallery</string>
     <string name="retrofit_activity_label">Retrofit test</string>
     <string name="vkontakte_activity_label">ВКонтакте</string>
+    <string name="vkontakte_audios_activity_label">Аудиозаписи ВК</string>
 
     <integer name="com_vk_sdk_AppId">5315024</integer>
 </resources>

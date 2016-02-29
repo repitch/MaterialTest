@@ -29,7 +29,7 @@ import com.octo.android.robospice.request.simple.SimpleTextRequest;
 import com.repitch.materialtest.view.activities.BaseSpiceActivity;
 import com.repitch.materialtest.view.activities.GalleryActivity;
 import com.repitch.materialtest.view.activities.RetrofitActivity;
-import com.repitch.materialtest.view.activities.VKAuthActivity;
+import com.repitch.materialtest.view.activities.VKAudiosActivity;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKSdk;
@@ -50,6 +50,8 @@ public class MainActivity extends BaseSpiceActivity
     Toolbar toolbar;
 
     BottomSheet.Builder testBottomSheet;
+    /*View mBottomSheet;
+    BottomSheetBehavior mBottomSheetBehavior;*/
 
     SimpleTextRequest textRequest;
 
@@ -132,6 +134,7 @@ public class MainActivity extends BaseSpiceActivity
             @Override
             public void onClick(View v) {
                 testBottomSheet.show();
+//                mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
         });
 
@@ -163,6 +166,8 @@ public class MainActivity extends BaseSpiceActivity
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
 
+        /*mBottomSheet = findViewById(R.id.bottom_sheet);
+        mBottomSheetBehavior = BottomSheetBehavior.from(mBottomSheet);*/
         testBottomSheet = new BottomSheet.Builder(this).title("Это тестовый bottomsheet").sheet(R.menu.bottom_sheet).listener(new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -226,8 +231,8 @@ public class MainActivity extends BaseSpiceActivity
             case R.id.nav_gallery:
                 startActivity(new Intent(this, GalleryActivity.class));
                 break;
-            case R.id.nav_vkontakte:
-                startActivity(new Intent(this, VKAuthActivity.class));
+            case R.id.nav_vk_audios:
+                startActivity(new Intent(this, VKAudiosActivity.class));
                 break;
             case R.id.nav_manage:
                 break;

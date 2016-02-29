@@ -32,6 +32,10 @@
         <activity android:name="com.vk.sdk.VKServiceActivity" android:label="ServiceActivity"
             android:theme="@style/VK.Transparent" />
         <activity
+            android:name=".view.activities.VKAudiosActivity"
+            android:label="@string/vkontakte_audios_activity_label" >
+        </activity>
+        <activity
             android:name=".view.activities.VKAuthActivity"
             android:label="@string/vkontakte_activity_label" >
         </activity>

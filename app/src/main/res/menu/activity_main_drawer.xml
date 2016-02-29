@@ -6,8 +6,8 @@
             android:title="Retrofit" />
         <item android:id="@+id/nav_gallery" android:icon="@android:drawable/ic_menu_gallery"
             android:title="Gallery" />
-        <item android:id="@+id/nav_vkontakte" android:icon="@drawable/ic_social_vk_white"
-            android:title="ВКонтакте" />
+        <item android:id="@+id/nav_vk_audios" android:icon="@drawable/ic_album_white_24dp"
+            android:title="@string/vkontakte_audios_activity_label" />
         <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
             android:title="Tools" />
     </group>

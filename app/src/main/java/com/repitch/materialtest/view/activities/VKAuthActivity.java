@@ -23,6 +23,11 @@ import com.vk.sdk.api.VKError;
  */
 public class VKAuthActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static final int RESULT_AUTH_SUCCESS = 0;
+    public static final int RESULT_AUTH_ERROR = 1;
+    public static final int REQUEST_AUTH = 10;
+
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         return false;
@@ -56,6 +61,8 @@ public class VKAuthActivity extends BaseActivity
 // Пользователь успешно авторизовался
                 Log.e(VKAuthActivity.class.getSimpleName(), "VKSdk onResult");
                 ImageSnackbar.make(mBtnVkAuth, ImageSnackbar.TYPE_SUCCESS, "Авторизация прошла успешно", Snackbar.LENGTH_SHORT).show();
+                setResult(RESULT_AUTH_SUCCESS);
+                finish();
             }
 
             @Override
